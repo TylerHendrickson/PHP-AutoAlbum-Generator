@@ -1,0 +1,37 @@
+README: PHP AutoAlbum Generator
+---------------------------------
+CREDITS
+Author: Tyler Hendrickson
+Email: hendrickson (dot) tsh (at) gmail (dot) com
+---------------------------------
+DESCRIPTION
+A useful MVC tool for auto-generating a list of images (in HTML) that share a common location.  It can be easily implemented onto existing websites that use image galleries not managed by a database, but instead rely on a directory structure organize the images.
+
+I originally created this to print HTML <img> tags into a <div> and then used jQuery to make image galleries or slideshows out of the contents in the <div>.
+
+EXAMPLES
+You can see this tool in action on these web sites:
+http://JettisonQuarterly.com
+http://CometVintageChicago.com
+---------------------------------
+CONFIGURATION
+(Note: See comments in files for customization and explanation- it's easy)
+
+Controllers:
+--Set $albumChoice to the name of your album.  'demo' would work if images were stored like so: /images/demo/image1.jpg
+--(Optional) Set $albumListFormat to a corresponding name in Album model if you want to use different output formats throughout your site.
+
+Views:
+--Include the view from your web page or...
+--Format each view as you would any PHP web page.  Just remember to include the path to the corresponding controller and echo $albumGen where you want the list to go
+
+
+Models:
+album.php:
+--In getContents() function, you can customize various switch cases to create a format for the list output.  Use $srcAttr to place the path of the image into your markup.
+--In loadContents() function, you should set $parentDir to the top directory in which all of your album sub-folders reside.  By default, the generator looks for files with the .jpg extension, but you can change this by setting 
+$imageExt to a different value.
+
+---------------------------------
+
+That's it!  Enjoy and contact me for any questions.
